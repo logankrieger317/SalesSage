@@ -4,7 +4,7 @@ Sales Sage is a comprehensive app that provides employee scheduling, point of sa
 
 ## Features
 
-### 1. Employee Scheduling
+## 1. Employee Scheduling
 
 Sales Sage offers a powerful employee scheduling system that allows you to efficiently manage your workforce. Key features include:
 
@@ -13,7 +13,7 @@ Sales Sage offers a powerful employee scheduling system that allows you to effic
 - Handle shift swaps and time-off requests.
 - Receive notifications for schedule changes.
 
-### 2. Point of Sale
+## 2. Point of Sale
 
 With Sales Sage, you can handle your point of sale operations seamlessly. The app provides the following features:
 
@@ -22,7 +22,7 @@ With Sales Sage, you can handle your point of sale operations seamlessly. The ap
 - Manage inventory and track stock levels.
 - Generate receipts and invoices for customers.
 
-### 3. Reporting for Sales and Labor
+## 3. Reporting for Sales and Labor
 
 Sales Sage offers robust reporting capabilities to help you gain insights into your sales and labor data. Key features include:
 
@@ -31,7 +31,7 @@ Sales Sage offers robust reporting capabilities to help you gain insights into y
 - Monitor inventory levels and identify popular products.
 - Export reports in various formats for further analysis.
 
-### 4. User Story
+## 4. User Story
 
 As a small business owner, I want to find a more cost-efficient and user-friendly app to replace the multiple products I currently use for employee scheduling, point of sale, and reporting. I am considering Sales Sage as a potential solution to streamline my sales and labor management processes. With Sales Sage, I hope to achieve the following:
 
@@ -41,22 +41,22 @@ As a small business owner, I want to find a more cost-efficient and user-friendl
 
 By adopting Sales Sage, I aim to reduce costs associated with using multiple products, enhance operational efficiency, and have a comprehensive solution that meets all my business needs.
 
-### 5. WireFrames
+## 5. WireFrames
 
-### 6. ERD
+## 6. ERD
 
-### 7. Technologies Used
-# React
-# Django
-# Python
-# PostgreSQL
-# HTML
-# CSS
-# JavaScript
-# Bootstrap
-# Plotly
+## 7. Technologies Used
+### React
+### Django
+### Python
+### PostgreSQL
+### HTML
+### CSS
+### JavaScript
+### Bootstrap
+### Plotly
 
-###  Created by:
-#  Logan Krieger
+##  Created by:
+###  Logan Krieger
 <a href= "www.linkedin.com/in/logankrieger">LinkedIn</a>
 <a href= "www.github.com/logankrieger317">GitHub</a>
