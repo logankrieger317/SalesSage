@@ -40,3 +40,23 @@ As a small business owner, I want to find a more cost-efficient and user-friendl
 - Gain valuable insights into my sales and labor data through robust reporting features, including detailed reports on sales performance, labor costs, employee productivity, and inventory levels.
 
 By adopting Sales Sage, I aim to reduce costs associated with using multiple products, enhance operational efficiency, and have a comprehensive solution that meets all my business needs.
+
+### 5. WireFrames
+
+### 6. ERD
+
+### 7. Technologies Used
+# React
+# Django
+# Python
+# PostgreSQL
+# HTML
+# CSS
+# JavaScript
+# Bootstrap
+# Plotly
+
+###  Created by:
+#  Logan Krieger
+<a href= "www.linkedin.com/in/logankrieger">LinkedIn</a>
+<a href= "www.github.com/logankrieger317">GitHub</a>
