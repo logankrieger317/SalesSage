@@ -15,7 +15,7 @@ function App() {
   
   return (
     <>
-      <div className="App" h-screen flex content-center items-center justify-center bg-red >
+      <div className=" h-screen flex content-center items-center justify-center bg-red ">
         <Home />
         <Header />
       </div>
