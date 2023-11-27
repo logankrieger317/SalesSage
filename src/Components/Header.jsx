@@ -6,7 +6,7 @@ import  Nav  from './Nav';
 const Header = () => {
   return (
     <div>
-      <h3>Header</h3>
+      <h3  >Header</h3>
       <Nav/>
     </div>
   );
