@@ -77,8 +77,8 @@ WSGI_APPLICATION = 'SalesSage_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'SalesSage',
-        'USER': 'SalesSageUser',
+        'NAME': 'salessage',
+        'USER': 'salessageuser',
         'PASSWORD': 'sales',
         'HOST': 'localhost'
     }
