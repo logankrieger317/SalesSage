@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Home from './Components/Home'
-import POS from './Components/POS'
-import Reports from './Components/Reports'
+
+
 
 
 
@@ -18,12 +18,10 @@ const Main = () => {
                
            </div>
            <Routes>
-               
-               {/* <Route path='/' element={<Home userData={userData} setUserData={setUserData}/>}/>
-               <Route path='/POS' element={<POS userData={userData} setUserData={setUserData}/>}/>
-                <Route path='/Reports' element={<Reports userData={userData} setUserData={setUserData}/>}/> */}
-                
-                
+               <Routes>
+                <Route path="/" element={<Home/>} />
+
+               </Routes>    
             <Route path="/POS" element={<POS/>} />
 
    

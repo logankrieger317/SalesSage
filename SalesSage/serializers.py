@@ -7,9 +7,9 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         many=True,
         read_only=True
     )
-     class Meta:
-       model = User
-       fields = ('name', 'email', 'profile')
+    class Meta:
+        model = User
+        fields = ('name', 'email', 'profile')
        
 class ProfileSerializer(serializers.HyperlinkedModelSerializer):
     user = serializers.HyperlinkedRelatedField(

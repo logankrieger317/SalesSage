@@ -2,17 +2,17 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const POS = () => {
+const UserSettings = () => {
   
     return(
         <>
         <Header/>
             <div>
-                <h1 >This is The POS Screen </h1>
+                <h1 >This is The User Settings Screen </h1>
             </div>
-        <Footer/>
+            <Footer/>
         </>
     )
 }
 
-export default POS;
+export default UserSettings;
