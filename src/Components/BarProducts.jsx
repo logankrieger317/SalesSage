@@ -100,7 +100,7 @@ export default function Bar() {
   return (
     <>
     <Header />
-    <div className="bg-green-100">
+    <div className="bg-green-50">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only"> Bar Products</h2>
 
@@ -108,7 +108,7 @@ export default function Bar() {
           {barProducts.map((product) => (
             <div
               key={product.id}
-              className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-green-200"
+              className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-green-100 shadow-lg"
             >
               <div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96">
                 <img

@@ -26,14 +26,14 @@ export default function POS() {
     <>
     <Header />
     <div className="bg-green-100">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 flex align-center justify-center flex-row  ">
         <h2 className="sr-only"> Bar Products</h2>
 
         <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
           {products.map((product) => (
             <div
               key={product.id}
-              className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
+              className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg"
             >
               <div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96">
                 <img

@@ -20,7 +20,7 @@ const dogProducts = [
   {
     id: 2,
     name: 'Dog Treats',
-    href: '#',
+    href: 'Cart',
     price: '$10',
     description: 'Delicious and nutritious treats for rewarding your dog during training or as a special snack.',
     options: 'Various options',
@@ -30,7 +30,7 @@ const dogProducts = [
   {
     id: 3,
     name: 'Dog Toys',
-    href: '#',
+    href: 'Cart',
     price: '$18',
     description: 'Fun and interactive toys to keep your dog entertained and mentally stimulated.',
     options: 'Various options',
@@ -40,7 +40,7 @@ const dogProducts = [
    {
     id: 4,
     name: 'Day Pass',
-    href: '#',
+    href: 'Cart',
     price: '$13',
     description: 'Enjoy a day of fun and activities for your dog with our Day Pass. Give your furry friend a chance to socialize and play in a safe and supervised environment.',
     options: 'One day access',
@@ -50,7 +50,7 @@ const dogProducts = [
   {
     id: 5,
     name: 'Monthly Membership',
-    href: '#',
+    href: 'Cart',
     price: '$35',
     description: 'Get unlimited access to our dog facilities and services with our Monthly Membership. Enjoy exclusive perks and discounts for a whole month.',
     options: 'Unlimited access for a month',
@@ -60,7 +60,7 @@ const dogProducts = [
   {
     id: 6,
     name: 'Annual Membership',
-    href: '#',
+    href: 'Cart',
     price: '$350',
     description: 'Experience the ultimate convenience and savings with our Annual Membership. Enjoy unlimited access and exclusive benefits for an entire year.',
     options: 'Unlimited access for a year',
@@ -81,15 +81,15 @@ export default function DogProducts() {
     
     <Cart/>
       <Header />
-      <div className="bg-green-100">
-        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div className="bg-green-50">
+        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 flex align-center justify-center">
           <h2 className="sr-only">Dog Products</h2>
 
           <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8 ">
             {dogProducts.map((product) => (
               <div
                 key={product.id}
-                className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-green-200"
+                className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-green-100 shadow-lg"
               >
                 <div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96">
                   <img
