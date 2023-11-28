@@ -13,9 +13,9 @@ const Home = () => {
   return (
     <>
       <Header />
-      <div className="bg-green-100 ml-14 h-3/4 w-3/4 l- flex felx-col flex-wrap align-center justify-center ">
-        <h1 className="text-4xl text-center">{getCurrentDate()}</h1>
-        
+      <p></p>
+      <div className="bg-green-100  h-3/4 w-3/4  flex felx-col flex-wrap align-baseline justify-left ">
+        <h5 className="text-2lg text-center ml-10">{getCurrentDate()}</h5>
         <div className="flex flex-wrap justify-center">
           
           
