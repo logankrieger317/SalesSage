@@ -14,6 +14,10 @@ import About from './Components/About'
 import Contact from './Components/Contact'
 import Terms from './Components/Terms'
 import Privacy from './Components/Privacy'
+import BarProducts from './Components/BarProducts'
+import DogProducts from './Components/DogProducts'
+// import { CartContext } from './Components/CartContext'
+import Cart from './Components/Cart'
 
 
 function App() {
@@ -35,6 +39,10 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/barproducts" element={<BarProducts />} />
+        <Route path="/dogproducts" element={<DogProducts />} />
+        <Route path="/cart" element={<Cart />} />
+
 
        
       </Routes>
