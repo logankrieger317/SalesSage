@@ -49,7 +49,7 @@ export default function Header() {
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 left-0 z-10 w-full overflow-y-auto bg-white px-6 py-6">
+        <Dialog.Panel className="fixed inset-y-0 left-0 z-10 w-3/4 overflow-y-auto bg-green-50 px-6 py-6 border-r-2 border-grey-100 border-solid">
           <div className="flex items-center justify-between">
             <div className="flex flex-1">
               <button
@@ -61,7 +61,7 @@ export default function Header() {
                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
-            <a href="Home" className="-m-1.5 p-1.5">
+            <a href="Home" className="-m-6.5 p-1.5">
               <span className="sr-only">Sales Sage</span>
               <img
                 className="h-16 w-auto"
