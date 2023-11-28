@@ -12,7 +12,10 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "chart.js": "^4.4.0",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-charts": "^0.0.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.0"
   },

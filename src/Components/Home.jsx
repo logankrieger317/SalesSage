@@ -1,21 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
 
 const Home = () => {
   
-    return(
-        <>
-        <Header/>
-        <div className="bg-green-100 h-screen w-screen  flex align-center justify-center ">
-            <div className="border-solid border-yellow-500  border-2 flex align-center justify-center w-4/5  top-14">
-                <h1>This is The Home Screen </h1>
-            </div>
+  const getCurrentDate = () => {
+    const currentDate = new Date();
+    return currentDate.toLocaleString();
+  };
+
+  return (
+    <>
+      <Header />
+      <div className="bg-green-100 ml-14 h-3/4 w-3/4 l- flex felx-col flex-wrap align-center justify-center ">
+        <h1 className="text-4xl text-center">{getCurrentDate()}</h1>
+        
+        <div className="flex flex-wrap justify-center">
+          
+          
+
         </div>
-        <Footer/>
-        </>
-    )
-}
+      </div>
+      <Footer />
+    </>
+  );
+};
 
 export default Home;

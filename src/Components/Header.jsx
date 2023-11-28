@@ -12,7 +12,7 @@ const navigation = [
 
 ]
 
-export default function Example() {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -42,7 +42,7 @@ export default function Example() {
           <img className="h-8 w-auto" src="SalesSageLogo.png" alt="" />
         </a>
         <div className="flex flex-1 justify-end">
-          <h1>Sales Sage</h1>
+          <h1 className='font-bold'>Sales Sage</h1>
           
         </div>
       </nav>
@@ -60,19 +60,15 @@ export default function Example() {
                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
+            <a href="Home" className="-m-1.5 p-1.5">
+              <span className="sr-only">Sales Sage</span>
               <img
-                className="h-8 w-auto"
+                className="h-16 w-auto"
                 src="SalesSageLogo.png"
                 alt=""
               />
             </a>
-            <div className="flex flex-1 justify-end">
-              <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                Log in <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
+            
           </div>
           <div className="mt-6 space-y-2">
             {navigation.map((item) => (

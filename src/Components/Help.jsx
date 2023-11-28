@@ -2,17 +2,17 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const Admin = () => {
+const Help = () => {
   
     return(
         <>
         <Header/>
             <div>
-                <h1 >This is The Admin Screen </h1>
+                <h1 >This is The Help Screen </h1>
             </div>
         <Footer/>
         </>
     )
 }
 
-export default Admin;
+export default Help;
