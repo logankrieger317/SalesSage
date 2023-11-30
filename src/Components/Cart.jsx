@@ -4,25 +4,25 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 
 
 
-// const products = [
-//   {
-//     id: 1,
+const products = [
+  {
+    id: 1,
     
-//   },
-//   {
-//     id: 2,
+  },
+  {
+    id: 2,
     
-//   },
+  },
   
-// ]
+]
 
 export default function Cart() {
-//   const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(true)
 
   return (
     <>
     
-    {/* <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setOpen}>
         <Transition.Child
           as={Fragment}
@@ -122,19 +122,19 @@ export default function Cart() {
                         <dl className="-my-4 divide-y divide-gray-200 text-sm">
                           <div className="flex items-center justify-between py-4">
                             <dt className="text-gray-600">Subtotal</dt>
-                            <dd className="font-medium text-gray-900">$262.00</dd>
+                            <dd className="font-medium text-gray-900">$0.00</dd>
                           </div>
                           <div className="flex items-center justify-between py-4">
                             <dt className="text-gray-600">Shipping</dt>
-                            <dd className="font-medium text-gray-900">$5.00</dd>
+                            <dd className="font-medium text-gray-900">$0.00</dd>
                           </div>
                           <div className="flex items-center justify-between py-4">
                             <dt className="text-gray-600">Tax</dt>
-                            <dd className="font-medium text-gray-900">$53.40</dd>
+                            <dd className="font-medium text-gray-900">$0.00</dd>
                           </div>
                           <div className="flex items-center justify-between py-4">
                             <dt className="text-base font-medium text-gray-900">Order total</dt>
-                            <dd className="text-base font-medium text-gray-900">$320.40</dd>
+                            <dd className="text-base font-medium text-gray-900">$0.00</dd>
                           </div>
                         </dl>
                       </div>
@@ -155,7 +155,7 @@ export default function Cart() {
           </div>
         </div>
       </Dialog>
-    </Transition.Root> */}
+    </Transition.Root>
     
     </>
   )
