@@ -18,14 +18,20 @@ import BarProducts from './Components/BarProducts'
 import DogProducts from './Components/DogProducts'
 // import { CartContext } from './Components/CartContext'
 import Cart from './Components/Cart'
+import { ThemeContext } from './Components/ThemeContext'
+
 
 
 function App() {
 
-  
+  const { theme } = useContext(ThemeContext);
+
   return (
   <>
     <div>
+     <div className={theme === 'dark' ? 'dark' : ''}>
+      
+    
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
@@ -46,6 +52,7 @@ function App() {
 
        
       </Routes>
+      </div>
     </div>
   
   </>
