@@ -1,31 +1,56 @@
-// import React from "react";
-// import { Chart } from "react-charts-2";
+import React, { Component } from "react";
 
-// const Charts = () => {
-//   const data = React.useMemo(
-//     () => [
-//       {
-//         label: "Series 1",
-//         data: [[0, 1], [1, 3], [2, 2], [3, 4], [4, 3]],
-//       },
-//     ],
-//     []
-//   );
+import ReactApexChart from 'react-apexcharts'
 
-//   const options = React.useMemo(
-//     () => ({
-//       scales: {
-//         x: { type: "linear" },
-//         y: { type: "linear" },
-//       },
-//     }),
-//     []
-//   );
+ class ApexChart extends React.Component {
+        constructor(props) {
+          super(props);
 
-//   return (
-//     <div style={{ width: "400px", height: "300px" }}>
-//       <Chart data={data} options={options} />
-//     </div>
-//   );
-// };
-// export default Charts;
+          this.state = {
+          
+            series: [{
+              name: 'Labor',
+              data: [31, 40, 28, 51, 42, 109, 100]
+            }, {
+              name: 'Profit',
+              data: [11, 32, 45, 32, 34, 52, 41]
+            }],
+            options: {
+              chart: {
+                height: 350,
+                type: 'area'
+              },
+              dataLabels: {
+                enabled: false
+              },
+              stroke: {
+                curve: 'smooth'
+              },
+              xaxis: {
+                type: 'datetime',
+                categories: ["12/1", "12/2", "12/3", "12/4", "12/5", "12/6", "12/7"]
+              },
+              tooltip: {
+                x: {
+                  format: 'dd/MM/yy HH:mm'
+                },
+              },
+            },
+          
+          
+          };
+        }
+
+      
+
+        render() {
+          return (
+            
+
+      <div id="chart">
+  <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={350} />
+</div>
+          );
+        }
+        }
+export default ApexChart;

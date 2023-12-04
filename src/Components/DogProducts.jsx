@@ -2,7 +2,11 @@
 import Header from './Header';
 import Footer from './Footer';
 import Cart from './Cart';
-import Modal from './Modal';
+import React, { useContext} from 'react';
+import CartContext  from './CartContext';
+import { useState, useEffect } from 'react';
+
+
 
 const dogProducts = [
     
@@ -69,18 +73,33 @@ const dogProducts = [
   },
 ];
 
-const handleProductClick = (product) => {
-  addToCart(product);
-};
+
+
 
 
 
 export default function DogProducts() {
+  
+  const { cart, addToCart } = useContext(CartContext);
+  const [isCartVisible, setCartVisible] = useState(false);
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    console.log("Added to cart")
+    setCartVisible(true);
+    console.log(cart);
+  };
+
   return (
     <>
     
-    <Cart/>
+    
       <Header />
+      {isCartVisible && <Cart cart={cart} />}
       <div className="bg-green-50">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 flex align-center justify-center">
           <h2 className="sr-only">Dog Products</h2>
@@ -109,6 +128,8 @@ export default function DogProducts() {
                   <div className="flex flex-1 flex-col justify-end">
                     <p className="text-sm italic text-gray-500">{product.options}</p>
                     <p className="text-base font-medium text-gray-900">{product.price}</p>
+                    <button className='w-fill h-10 bg-red-900'     onClick={() => handleAddToCart(product)}>Add to Cart</button>
+
                   </div>
                 </div>
               </div>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import Calendar from "./Calendar";
+import Charts from "./Charts";
 
 
 const Home = () => {
@@ -14,12 +16,13 @@ const Home = () => {
     <>
       <Header />
       <p></p>
-      <div className="bg-green-100  h-3/4 w-3/4  flex felx-col flex-wrap align-baseline justify-left ">
-        <h5 className="text-2lg text-center ml-10">{getCurrentDate()}</h5>
-        <div className="flex flex-wrap justify-center">
-          
-          
+      <div className="bg-green-100  ">
+        <h5 className="text-2lg text-center ">{getCurrentDate()}</h5>
+        <div className="flex flex-col flex-wrap item-center justify-center w-100%  ">
+        {/* <Calendar/> */}
 
+  
+        <Charts  />
         </div>
       </div>
       <Footer />
