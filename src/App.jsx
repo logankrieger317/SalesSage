@@ -48,7 +48,7 @@ function App() {
         <Route path="/barproducts" element={<BarProducts />} />
         <Route path="/dogproducts" element={<DogProducts />} />
         <Route path="/cart" element={<Cart />} />
-
+        <Route path="/admin/:id" component={Admin} />
 
        
       </Routes>

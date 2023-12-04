@@ -76,7 +76,7 @@ export default function Footer() {
               alt="Company name"
             />
             <p className="text-sm leading-6 text-gray-600">
-              In This Garden, We Help You Grow!
+              In This Garden, We Grow Together!
             </p>
             <div className="flex space-x-6">
               {navigation.social.map((item) => (

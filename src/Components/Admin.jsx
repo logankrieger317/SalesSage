@@ -1,13 +1,62 @@
 import Header from './Header'
 import Footer from './Footer'
+import { BASE_URL } from '../../globals'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
+import { get } from 'mongoose'
 
-const people = [
-    { name: 'Lindsay Walton', title: 'Front-end Developer', email: 'lindsay.walton@example.com', role: 'Member' },
-    { name: 'Logan Krieger', title: 'Software Engineer', email: 'Logan@KriegerTX.com', role: 'Creator' },
-
-]
 
 export default function Admin() {
+  const { id } = useParams();
+  const [user, setUser] = useState(null);
+  const [editedUser, setEditedUser] = useState(null);
+  
+  useEffect(() => {
+  async function getUser() {
+    const response = await axios.get(`${BASE_URL}/users/`);
+    console.log('response.data:', response.data); // log the entire response data
+    console.log('id:', id); // log the id
+    const user = response.data.find(user => user.id === id);
+    console.log(user._id); // log the specific user data
+    setUser(response.data.user);
+    console.log('user:', user); // log the specific user data
+    console.log('user.name:', user.user); // log the specific user data
+    console.log('user.username:', user.username); // log the specific user data
+    console.log('user._id:', user._id); // log the specific user data
+  }
+  getUser();
+}, [id]);
+  
+   
+
+  const handleUserChange = (event) => {
+    setEditedUser(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handleUserSubmit = async (event) => {
+    event.preventDefault();
+    const response = await axios.put(`${BASE_URL}/users/${id}`, {
+      user: editedUser,
+    }); console.log(response.data.user)
+    setUser(response.data.user);
+  }
+
+ 
+  
+  const people = [
+      { name: '', username:'' },
+      { name: 'Logan Krieger', username:'' },
+  
+  ]
+
+  const showMyClick = () => {
+    console.log('You clicked the button!')
+    console.log(user)
+    
+  }
+  
   return (
     <>
     <Header />
@@ -22,7 +71,7 @@ export default function Admin() {
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
           <button
             type="button"
-            className="block rounded-md bg-green-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+            className="block rounded-md bg-green-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600" onClick={showMyClick}
           >
             Add user
           </button>
@@ -38,14 +87,9 @@ export default function Admin() {
                     Name
                   </th>
                   <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                    Title
+                    Username
                   </th>
-                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                    Email
-                  </th>
-                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                    Role
-                  </th>
+                 
                   <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-0">
                     <span className="sr-only">Edit</span>
                   </th>
@@ -53,13 +97,12 @@ export default function Admin() {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {people.map((person) => (
-                  <tr key={person.email}>
+                  <tr key={person.name}>
                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                       {person.name}
                     </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.title}</td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.email}</td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.role}</td>
+                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.name}</td>
+                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.username}</td> 
                     <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                       <a href="#" className="text-green-600 hover:text-green-900">
                         Edit<span className="sr-only">, {person.name}</span>
