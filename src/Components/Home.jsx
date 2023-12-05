@@ -26,7 +26,19 @@ const Home = () => {
         <h1 className=" flex items-center justify-center mb-4 mt-4 shadow-2xl ">Sales Vs. Labor</h1>
         <Charts  />
         </div>
-      </div>
+        </div>
+        <div className="flex flex-row justify-center mt-4">
+          <button type="button"
+                    className="w-fit flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 shadow-2xl mb-4"
+                  >
+            Time Off Request
+          </button>
+          <button type="button"
+                    className="w-fit flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 shadow-2xl mb-4 ml-2"
+                  >
+            Trade Shift Request
+          </button>
+        </div>
       {/* </div> */}
 
       <Footer />

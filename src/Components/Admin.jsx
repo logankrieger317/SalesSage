@@ -92,6 +92,8 @@ const handleEditSubmit = async (event) => {
   }
   
   
+    
+  
   
   
   return (
@@ -102,7 +104,7 @@ const handleEditSubmit = async (event) => {
         <div className="sm:flex-auto">
           <h1 className="text-base font-semibold leading-6 text-gray-900">Users</h1>
           <p className="mt-2 text-sm text-gray-700">
-            A list of all the users in your account including their name, title, email and role.
+            A list of all the users in your account including their name and username.
           </p>
         </div>
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
@@ -164,6 +166,8 @@ const handleEditSubmit = async (event) => {
             <button className='m-1 text-green-600 shadow-md border-solid border-green-300 border-2 rounded-lg p-1' onClick={() => setEditingId(user._id)}>Edit</button>
           )}
           <button className='m-1 text-green-600 shadow-md border-solid border-green-300 border-2 rounded-lg p-1' onClick={() => handleDelete(user._id)}>Delete</button>
+           <a href='Profile' className='m-1 text-green-600 shadow-md border-solid border-green-300 border-2 rounded-lg p-1' >Profile</a>
+
         </td>
       </tr>
                 ))}

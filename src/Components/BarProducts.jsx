@@ -116,10 +116,10 @@ const handleEdit = (product) => {
           </div>
           </div>  
           ))}
+    </div>
+    </div>
+    </div>
     <Footer />
-    </div>
-    </div>
-    </div>
   </>
   );
 

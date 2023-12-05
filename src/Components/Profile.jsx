@@ -1,43 +1,219 @@
 import Header from './Header'
 import Footer from './Footer'
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { BASE_URL } from '../../globals';
-import UsersDropdown from './UsersDropdown';
+import { BASE_URL } from '../../globals'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-export default function Profile({ userId }) {
-  const [profileData, setProfileData] = useState({});
-  
-  
-  
 
+
+
+
+export default function Admin() {
+  
+  const [user, setUser] = useState([]);
+  const [editedUser, setEditedUser] = useState([]);
+  const [editedUsername, setEditedUsername] = useState('');
+  const [editedPassword, setEditedPassword] = useState('');
+  const [editedFirstName, setEditedFirstName] = useState('');
+  const [editedLastName, setEditedLastName] = useState('');
+  const [editedEmail, setEditedEmail] = useState('');
+  const [editedAbout, setEditedAbout] = useState('');
+  const [editedPhoto, setEditedPhoto] = useState('');
+  const [editedStreet, setEditedStreet] = useState('');
+  const [editedCity, setEditedCity] = useState('');
+  const [editedState, setEditedState] = useState('');
+  const [showAddUser, setShowAddUser] = useState(false);
+  const [editingId, setEditingId] = useState(null);
+  
   useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/profile/:user`);
-        setProfileData(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error('Error Fetching profile:', error);
-      }
-    };
+  async function getUser() {
+    const response = await axios.get(`${BASE_URL}/profiles/`);
+    setUser(response.data);
+  }
+  getUser();
+}, []);
+  
 
-    fetchProfile();
-  }, []);
 
+const handleUsernameChange = (event) => {
+  setEditedUsername(event.target.value);
+};
+
+  
+  const handleUserChange = (event) => {
+    setEditedUser(event.target.value);
+    console.log(event.target.value);
+  };
+
+ const handleUserSubmit = async (event) => {
+  event.preventDefault();
+  try {
+    await axios.post(`${BASE_URL}/profiles/`, {
+      user: editedUser,
+      username: editedUsername,
+      password: editedPassword,
+      firstName: editedFirstName,
+      lastName: editedLastName,
+      email: editedEmail,
+      about: editedAbout,
+      photo: editedPhoto,
+      street: editedStreet,
+      city: editedCity,
+      state: editedState,
+      zip: editedZip,
+      notifications: editedNotifications,
+    });
+
+   
+    const response = await axios.get(`${BASE_URL}/profiles/`);
+    setUser(response.data);
+    setEditedUser(response.data.username);
+    setShowAddUser(false);
+  } catch (error) {
+    console.error('Error Creating User:', error);
+  }
+}
+
+  
+   const handleDelete = async (id) => {
+  try {
+    await axios.delete(`${BASE_URL}/profiles/${id}`);
+    const response = await axios.get(`${BASE_URL}/profiles/`);
+    setUser(response.data);
+  } catch (error) {
+    console.error('Error Deleting User:', error);
+  }
+}
+ 
+const handleEditSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.put(`${BASE_URL}/profiles/${editingId}`, {
+        user: editedUser,
+        username: editedUsername,
+      });
+
+      const response = await axios.get(`${BASE_URL}/profiles/`);
+      setUser(response.data);
+      setEditedUser('');
+      setEditedUsername('');
+      setEditingId(null);
+      setEditedFirstName('');
+      setEditedLastName('');
+      setEditedEmail('');
+      setEditedAbout('');
+      setEditedPhoto('');
+      setEditedStreet('');
+      setEditedCity('');
+      setEditedState('');
+      setEditedZip('');
+      setEditedNotifications('');
+    } catch (error) {
+      console.error('Error Editing User:', error);
+    }
+  }
+
+
+
+  const showMyClick = () => {
+    console.log('Add User Clicked')
+    setShowAddUser(true);
+    
+  }
+  
+  
+  
+  
   return (
     <>
     <Header />
-    <UsersDropdown userId={userId}/>
-    <div>
-      <h1>{profileData.firstName} {profileData.lastName}</h1>
-      <p>{profileData.email}</p>
-      <p>{profileData.about}</p>
-      {/* <img src={profileData.photo} alt="Profile" /> */}
-      <p>{profileData.street}, {profileData.city}, {profileData.state} {profileData.zip}</p>
-      <p>Notifications: {profileData.notifications ? 'On' : 'Off'}</p>
+    <div className="px-4 sm:px-6 lg:px-8">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-900">Profiles</h1>
+          <p className="mt-2 text-sm text-gray-700">
+           
+          </p>
+        </div>
+        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <button
+            type="button"
+            className="block rounded-md bg-green-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600" onClick={showMyClick}
+          >
+            Add Profile
+          </button>
+        </div>
+      </div>
+      {showAddUser && ( 
+        <form onSubmit={handleUserSubmit}>
+          <input type="text" name="name" value={editedUser?.user} onChange={handleUserChange} placeholder="Name" />
+          <input type="text" name="username" value={editedUsername?.username} onChange={handleUsernameChange} placeholder="Username" />
+          <button className="block rounded-md bg-green-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600" type="submit" >Submit</button>
+        </form>
+      )}
+      <div className="mt-8 flex items-center justify-center">
+        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+            <table className="min-w-full divide-y divide-gray-300">
+              <thead>
+                <tr>
+                  <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                    Name
+                  </th>
+                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                    Username
+                  </th>
+                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                    First Name
+                  </th>
+                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                    Photo
+                  </th>
+                  <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                    Last Name
+                  </th>
+
+                 
+                  <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-0">
+                    <span className="sr-only">Edit</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                 {Array.isArray(user) && user.map((user) => (
+      <tr key={user.name}>
+        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+          {editingId === user._id ? (
+            <input type="text" value={editedUser} onChange={handleUserChange} placeholder='Name' />
+          ) : (
+            user.user
+          )}
+        </td>
+        
+        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+          {editingId === user._id ? (
+            <input type="text" value={editedUsername} onChange={handleUsernameChange} placeholder='Username' />
+          ) : (
+            user.username
+          )}
+        </td> 
+        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+          {editingId === user._id ? (
+            <button className='m-1 text-green-600 shadow-md border-solid border-green-300 border-2 rounded-lg p-1' onClick={handleEditSubmit}>Save</button>
+          ) : (
+            <button className='m-1 text-green-600 shadow-md border-solid border-green-300 border-2 rounded-lg p-1' onClick={() => setEditingId(user._id)}>Edit</button>
+          )}
+          <button className='m-1 text-green-600 shadow-md border-solid border-green-300 border-2 rounded-lg p-1' onClick={() => handleDelete(user._id)}>Delete</button>
+        </td>
+      </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
     <Footer />
     </>
-  );
+  )
 }
