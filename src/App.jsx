@@ -53,6 +53,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:id" component={<Profile/>} />
         <Route path="/POS" element={<POS />} />
         <Route path="/reports" element={<Reports />} />
         <Route path="/admin" element={<Admin />} />

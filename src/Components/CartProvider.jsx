@@ -10,7 +10,7 @@ export function CartProvider({ children }) {
 
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
-    console.log(cart); // Log the current cart
+    console.log(cart); 
   };
 
   return (
