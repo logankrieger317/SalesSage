@@ -228,13 +228,13 @@ const handleEditSubmit = async (event) => {
         </li> 
 
       ))}
-    </ul>
-    <div className='flex flex-row mt-2'>
-    <button className="block rounded-md bg-green-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"  onClick={() => filterSelect()} >Search</button>
-    <button className="block rounded-md bg-green-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 ml-2"  onClick={() => setFilter('')}>Clear</button>
-    </div>
-    </div>
+      </ul>
+      <div className='flex flex-row mt-2'>
+        <button className="block rounded-md bg-green-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"  onClick={() => filterSelect()} >Search</button>
+        <button className="block rounded-md bg-green-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 ml-2"  onClick={() => setFilter('')}>Clear</button>
       </div>
+    </div>
+  </div>
       {showAddUser && ( 
         <form onSubmit={handleUserSubmit} className='m-1 shadow-2xl w-100 flex flex-col items-center justify-center '>
           <input className='shadow-2xl m-2 p-2 rounded-xl h-6  bg-green-200' type="text" name="user" value={editedUser?.user} onChange={handleUserChange} placeholder="ID" />
