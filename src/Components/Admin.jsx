@@ -24,8 +24,6 @@ export default function Admin() {
   getUser();
 }, []);
   
-
-
 const handleUsernameChange = (event) => {
   setEditedUsername(event.target.value);
 };
