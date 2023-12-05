@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import './App.css'
 import Home from './Components/Home'
 import { Route,Routes } from 'react-router-dom'
@@ -20,6 +20,9 @@ import Calendar from './Components/Calendar'
 // import { CartContext } from './Components/CartContext'
 import Cart from './Components/Cart'
 import { ThemeContext } from './Components/ThemeContext'
+import { get, set } from 'mongoose'
+import axios from 'axios'
+import { BASE_URL } from '../globals'
 
 
 
@@ -27,14 +30,23 @@ import { ThemeContext } from './Components/ThemeContext'
 function App() {
 
   const { theme } = useContext(ThemeContext);
+  const [user, setUser] = useState(null);
+  
+  useEffect(() => {
+    async function getUser() {
+      const response = await axios.get(`${BASE_URL}/users/`);
+      setUser(response.data);
+      
+  }getUser()},[])
+    console.log(user)
+    
 
-  
-  
   return (
     <>
     
     <div>
      <div className={theme === 'dark' ? 'dark' : ''}>
+      
       
     
       <Routes>
@@ -44,6 +56,7 @@ function App() {
         <Route path="/POS" element={<POS />} />
         <Route path="/reports" element={<Reports />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/:id" component={<Admin/>} />
         <Route path="/usersettings" element={<UserSettings />} />
         <Route path="/help" element={<Help />} />
         <Route path="/about" element={<About />} />

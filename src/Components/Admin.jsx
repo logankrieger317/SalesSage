@@ -2,60 +2,97 @@ import Header from './Header'
 import Footer from './Footer'
 import { BASE_URL } from '../../globals'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { get } from 'mongoose'
+
+
+
 
 
 export default function Admin() {
-  const { id } = useParams();
-  const [user, setUser] = useState(null);
-  const [editedUser, setEditedUser] = useState(null);
+  
+  const [user, setUser] = useState([]);
+  const [editedUser, setEditedUser] = useState([]);
+  const [editedUsername, setEditedUsername] = useState('');
+  const [showAddUser, setShowAddUser] = useState(false);
+  const [editingId, setEditingId] = useState(null);
   
   useEffect(() => {
   async function getUser() {
     const response = await axios.get(`${BASE_URL}/users/`);
-    console.log('response.data:', response.data); // log the entire response data
-    console.log('id:', id); // log the id
-    const user = response.data.find(user => user.id === id);
-    console.log(user._id); // log the specific user data
-    setUser(response.data.user);
-    console.log('user:', user); // log the specific user data
-    console.log('user.name:', user.user); // log the specific user data
-    console.log('user.username:', user.username); // log the specific user data
-    console.log('user._id:', user._id); // log the specific user data
+    setUser(response.data);
   }
   getUser();
-}, [id]);
+}, []);
   
-   
 
+
+const handleUsernameChange = (event) => {
+  setEditedUsername(event.target.value);
+};
+
+  
   const handleUserChange = (event) => {
     setEditedUser(event.target.value);
     console.log(event.target.value);
   };
 
-  const handleUserSubmit = async (event) => {
-    event.preventDefault();
-    const response = await axios.put(`${BASE_URL}/users/${id}`, {
+ const handleUserSubmit = async (event) => {
+  event.preventDefault();
+  try {
+    await axios.post(`${BASE_URL}/users/`, {
       user: editedUser,
-    }); console.log(response.data.user)
-    setUser(response.data.user);
+      username: editedUsername,
+    });
+
+   
+    const response = await axios.get(`${BASE_URL}/users/`);
+    setUser(response.data);
+    setEditedUser(response.data.username);
+    setShowAddUser(false);
+  } catch (error) {
+    console.error('Error Creating User:', error);
+  }
+}
+
+  
+   const handleDelete = async (id) => {
+  try {
+    await axios.delete(`${BASE_URL}/users/${id}`);
+    const response = await axios.get(`${BASE_URL}/users/`);
+    setUser(response.data);
+  } catch (error) {
+    console.error('Error Deleting User:', error);
+  }
+}
+ 
+const handleEditSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.put(`${BASE_URL}/users/${editingId}`, {
+        user: editedUser,
+        username: editedUsername,
+      });
+
+      const response = await axios.get(`${BASE_URL}/users/`);
+      setUser(response.data);
+      setEditedUser('');
+      setEditedUsername('');
+      setEditingId(null);
+    } catch (error) {
+      console.error('Error Editing User:', error);
+    }
   }
 
- 
-  
-  const people = [
-      { name: '', username:'' },
-      { name: 'Logan Krieger', username:'' },
-  
-  ]
+
 
   const showMyClick = () => {
-    console.log('You clicked the button!')
-    console.log(user)
+    console.log('Add User Clicked')
+    setShowAddUser(true);
     
   }
+  
+  
+  
   
   return (
     <>
@@ -77,7 +114,14 @@ export default function Admin() {
           </button>
         </div>
       </div>
-      <div className="mt-8 flow-root ">
+      {showAddUser && ( 
+        <form onSubmit={handleUserSubmit}>
+          <input type="text" name="name" value={editedUser?.name} onChange={handleUserChange} placeholder="Name" />
+          <input type="text" name="username" value={editedUsername?.username} onChange={handleUsernameChange} placeholder="Username" />
+          <button className="block rounded-md bg-green-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600" type="submit" >Submit</button>
+        </form>
+      )}
+      <div className="mt-8 flex items-center justify-center">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
             <table className="min-w-full divide-y divide-gray-300">
@@ -96,19 +140,32 @@ export default function Admin() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                {people.map((person) => (
-                  <tr key={person.name}>
-                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
-                      {person.name}
-                    </td>
-                    {/* <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.user}</td> */}
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.username}</td> 
-                    <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                      <a href="#" className="text-green-600 hover:text-green-900">
-                        Edit<span className="sr-only">, {person.name}</span>
-                      </a>
-                    </td>
-                  </tr>
+                 {Array.isArray(user) && user.map((user) => (
+      <tr key={user.name}>
+        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+          {editingId === user._id ? (
+            <input type="text" value={editedUser} onChange={handleUserChange} placeholder='Name' />
+          ) : (
+            user.user
+          )}
+        </td>
+        
+        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+          {editingId === user._id ? (
+            <input type="text" value={editedUsername} onChange={handleUsernameChange} placeholder='Username' />
+          ) : (
+            user.username
+          )}
+        </td> 
+        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+          {editingId === user._id ? (
+            <button className='m-1 text-green-600 shadow-md border-solid border-green-300 border-2 rounded-lg p-1' onClick={handleEditSubmit}>Save</button>
+          ) : (
+            <button className='m-1 text-green-600 shadow-md border-solid border-green-300 border-2 rounded-lg p-1' onClick={() => setEditingId(user._id)}>Edit</button>
+          )}
+          <button className='m-1 text-green-600 shadow-md border-solid border-green-300 border-2 rounded-lg p-1' onClick={() => handleDelete(user._id)}>Delete</button>
+        </td>
+      </tr>
                 ))}
               </tbody>
             </table>
