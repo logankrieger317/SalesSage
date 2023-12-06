@@ -9,6 +9,7 @@ export default function BarProducts() {
   const [editedProduct, setEditedProduct] = useState(null);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [cart, setCart] = useState([]);
 
 
 useEffect(() => {
@@ -55,6 +56,11 @@ const handleEdit = (product) => {
     }
   }
 
+  const handleAddToCart = (product) => {
+    // setCart([...cart, product]);
+    console.log('Added To Cart')
+  }
+
   return (
   <>
     <Header />
@@ -97,7 +103,7 @@ const handleEdit = (product) => {
                 <div>
                   <button
                     type="button"
-                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 shadow-2xl"
+                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 shadow-2xl" onClick={() => handleAddToCart()}
                   >
                     Add to cart
                   </button>

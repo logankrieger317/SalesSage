@@ -23,6 +23,7 @@ export default function Profile() {
   const [editedZip, setEditedZip] = useState('');
   const [filter, setFilter] = useState('');
   const [users, setUsers] = useState([]);
+  const [isFilterActive, setIsFilterActive] = useState(false);
 
  useEffect(() => {
     const fetchUsers = async () => {
@@ -192,6 +193,7 @@ const handleEditSubmit = async (event) => {
   const filterSelect = () => {
     console.log('Filter Selected')
     setFilter(filter)
+    setIsFilterActive(e.target.value !== '');
   }
   
   
