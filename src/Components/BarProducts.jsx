@@ -61,6 +61,14 @@ const handleEdit = (product) => {
     console.log('Added To Cart')
   }
 
+const kerfuffle = [
+  {
+    id: 1,
+    title: 'Craft Beer Sampler',
+    imageSrc: 'https://i5.walmartimages.com/seo/Beer-Tasting-Flight-Sampler-Set-of-4-6oz-Pilsner-Craft-Brew-Glasses-with-Paddle-and-Chalkboard-Great-Gift_0ae1b549-8036-4886-a932-6fec4d573d0b.f8990d3e44af450581e3153bd86be86f.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF',
+  }
+]
+
   return (
   <>
     <Header />

@@ -17,7 +17,7 @@ Sales Sage offers a powerful employee scheduling system that allows you to effic
 
 With Sales Sage, you can handle your point of sale operations seamlessly. The app provides the following features:
 
-- Process sales transactions quickly and accurately.
+- Record sales transactions quickly and accurately.
 - Accept various payment methods, including cash, credit cards, and mobile payments.
 - Manage inventory and track stock levels.
 - Generate receipts and invoices for customers.
@@ -43,18 +43,16 @@ By adopting Sales Sage, I aim to reduce costs associated with using multiple pro
 
 ## 5. WireFrames
 
-## 6. ERD
 
-## 7. Technologies Used
+## 6. Technologies Used
 ### React
-### Django
-### Python
-### PostgreSQL
+### Mongoose
+### Express
 ### HTML
 ### CSS
 ### JavaScript
-### Bootstrap
-### Plotly
+### Tailwind CSS
+### ApexCharts
 
 ##  Created by:
 ###  Logan Krieger
