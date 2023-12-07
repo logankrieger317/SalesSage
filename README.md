@@ -6,7 +6,7 @@ Sales Sage is a comprehensive app that provides employee scheduling, point of sa
 
 ## 1. Employee Scheduling
 
-Sales Sage offers a powerful employee scheduling system that allows you to efficiently manage your workforce. Key features include:
+Sales Sage will offer a powerful employee scheduling system that allows you to efficiently manage your workforce. Key features will include:
 
 - Create and manage employee schedules with ease.
 - Assign shifts and track employee availability.
@@ -57,6 +57,24 @@ By adopting Sales Sage, I aim to reduce costs associated with using multiple pro
 <br>
 <br>
 
+## 7. Upcoming Features
+### 1. Employee Scheduling
+- [ ] Add ability to assign shifts to employees.
+- [ ] Add ability to track employee availability.
+- [ ] Add ability to handle shift swaps and time-off requests.
+- [ ] Add ability to receive notifications for schedule changes.
+
+### 2. Point of Sale
+- [ ] Add ability to record sales transactions.
+- [ ] Add ability to accept various payment methods, including cash, credit cards, and mobile payments.
+- [ ] Add ability to manage inventory and track stock levels.
+- [ ] Add ability to generate receipts and invoices for customers.
+
+### 3. Reporting for Sales and Labor
+- [ ] Add ability to generate detailed reports on sales performance, including revenue, profit, and trends.
+- [ ] Add ability to track labor costs and analyze employee productivity.
+- [ ] Add ability to monitor inventory levels and identify popular products.
+- [ ] Add ability to export reports in various formats for further analysis.
 
 
 
