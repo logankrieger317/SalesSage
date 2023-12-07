@@ -201,21 +201,21 @@ const handleEditSubmit = async (event) => {
     <>
     <Header />
 
-    <div className="px-4 sm:px-6 lg:px-8">
-      <div className="sm:flex sm:items-center">
-        <div className="sm:flex-auto">
+    <div className="px-4 sm:px-6 lg:px-8 overflow-auto">
+      <div className="sm:flex sm:items-center overflow-auto">
+        <div className="sm:flex-auto ">
           <h1 className="text-base font-semibold leading-6 text-gray-900">Profiles</h1>
           <p className="mt-2 text-sm text-gray-700">
            
           </p>
-        </div>
-        <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+        <div className="mt-4 sm:mt-0 sm:flex-none">
           <button
             type="button"
             className="block rounded-md bg-green-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600" onClick={showMyClick}
           >
             Add Profile
           </button>
+        </div>
         </div>
         <div className='w-100'>
         <h1 className="text-base font-semibold leading-6 text-gray-900 mt-2">Filter Users</h1>
@@ -239,7 +239,7 @@ const handleEditSubmit = async (event) => {
     </div>
   </div>
       {showAddUser && ( 
-        <form onSubmit={handleUserSubmit} className='m-1 shadow-2xl w-100 flex flex-col items-center justify-center '>
+        <form onSubmit={handleUserSubmit} className=' shadow-2xl w-100 flex flex-col items-center justify-center'>
           <input className='shadow-2xl m-2 p-2 rounded-xl h-6  bg-green-200' type="text" name="user" value={editedUser?.user} onChange={handleUserChange} placeholder="ID" />
           <input className='shadow-2xl m-2 p-2 rounded-xl h-6  bg-green-200' type="text" name="username" value={editedUsername?.username} onChange={handleUsernameChange} placeholder="Username" />
           <input className='shadow-2xl m-2 p-2 rounded-xl h-6  bg-green-200' type="text" name="password" value={editedPassword?.password} onChange={handlePasswordChange} placeholder="Password" />
@@ -390,16 +390,16 @@ const handleEditSubmit = async (event) => {
           )}
         </td>
          
-
+            <div className=''>
         <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
           {editingId === user._id ? (
-            <button className='m-1 text-green-600 shadow-md border-solid border-green-300 border-2 rounded-lg p-1' onClick={handleEditSubmit}>Save</button>
+            <button className='m-1 text-green-600 shadow-md border-solid border-green-300 border-2 rounded-lg p-1 focus:bg-green-900' onClick={handleEditSubmit}>Save</button>
           ) : (
             <button className='m-1 text-green-600 shadow-md border-solid border-green-300 border-2 rounded-lg p-1' onClick={() => setEditingId(user._id)}>Edit</button>
           )}
           <button className='m-1 text-green-600 shadow-md border-solid border-green-300 border-2 rounded-lg p-1' onClick={() => handleDelete(user._id)}>Delete</button>
         </td>
-
+            </div>
       </tr>
                 ))}
               </tbody>
