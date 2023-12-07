@@ -54,6 +54,11 @@ By adopting Sales Sage, I aim to reduce costs associated with using multiple pro
 ### Tailwind CSS
 ### ApexCharts
 
+
+
+
+
+
 ##  Created by:
 ###  Logan Krieger
 <a href= "www.linkedin.com/in/logankrieger">LinkedIn</a>
