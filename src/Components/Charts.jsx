@@ -10,10 +10,10 @@ import ReactApexChart from 'react-apexcharts'
           
             series: [{
               name: 'Labor',
-              data: [31, 40, 28, 51, 42, 109, 100]
+              data: [486,488,555,539,615,600,600]
             }, {
-              name: 'Profit',
-              data: [11, 32, 45, 32, 34, 52, 41]
+              name: 'Sales',
+              data: [486,520,400,785,949,1000,1000]
             }],
             options: {
               chart: {
